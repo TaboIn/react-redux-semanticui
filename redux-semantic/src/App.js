@@ -4,6 +4,7 @@ import InputField from './components/InputFiled'
 import { useDispatch } from 'react-redux'
 import { addTodo } from './store/todoSlice'
 import ModalWindow from './components/ModalWindow'
+import TodoList from './components/TodoList'
 
 function App() {
 	const [text, setText] = useState('')
@@ -18,10 +19,27 @@ function App() {
 		<>
 			<div className='App bg-emerald-100 h-screen'>
 				<InputField text={text} handleInput={setText} handleSubmit={addTask} />
-				{text.length > 0 ? null : <p>Заполните поле!</p>}
-				
-				
-				<ModalWindow />
+				{text.length > 0 ? null : <p className='font-bold'>Заполните поле!</p>}
+				<div className='flex justify-center items-center '>
+					<ModalWindow
+						urgency={'Срочные задачи'}
+						urgentTask={'Краткосрочные задачи'}
+						color={'red'}
+						list={<TodoList />}
+					/>
+					<ModalWindow
+						urgency={'Среднесрочные задачи'}
+						urgentTask={'Среднесрочные задачи'}
+						color={'teal'}
+						list={<TodoList />}
+					/>
+					<ModalWindow
+						urgency={'Долгосрочные задачи'}
+						urgentTask={'Долгосрочные задачи'}
+						color={'blue'}
+						list={<TodoList />}
+					/>
+				</div>
 			</div>
 		</>
 	)

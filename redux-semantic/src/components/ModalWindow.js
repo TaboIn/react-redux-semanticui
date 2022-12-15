@@ -1,51 +1,50 @@
-import React from 'react'
-import TodoList from './TodoList'
+import React, { useReducer } from 'react'
 import { Button, Modal } from 'semantic-ui-react'
 
 function exampleReducer(state, action) {
-  switch (action.type) {
-    case 'OPEN_MODAL':
-      return { open: true, dimmer: action.dimmer }
-    case 'CLOSE_MODAL':
-      return { open: false }
-    default:
-      throw new Error()
-  }
+	switch (action.type) {
+		case 'OPEN_MODAL':
+			return { open: true, dimmer: action.dimmer }
+		case 'CLOSE_MODAL':
+			return { open: false }
+		default:
+			throw new Error()
+	}
 }
 
-function ModalExampleDimmer() {
-  const [state, dispatch] = React.useReducer(exampleReducer, {
-    open: false,
-    dimmer: undefined,
-  })
-  const { open, dimmer } = state
+function ModalExampleDimmer({ urgency, urgentTask, color, list }) {
+	const [state, dispatch] = useReducer(exampleReducer, {
+		open: false,
+		dimmer: undefined,
+	})
+	const { open, dimmer } = state
 
-  return (
-    <div>
-      <Button
-        onClick={() => dispatch({ type: 'OPEN_MODAL', dimmer: 'blurring' })}
-      >
-        Срочные задачи
-      </Button>
+	return (
+		<div className='p-8'>
+			<Button
+				onClick={() => dispatch({ type: 'OPEN_MODAL', dimmer: 'blurring' })}
+				color={color}
+			>
+				{urgency}
+			</Button>
 
-      <Modal
-        dimmer={dimmer}
-        open={open}
-        onClose={() => dispatch({ type: 'CLOSE_MODAL' })}
-        
-      >
-        <Modal.Header>Краткосрочные задачи</Modal.Header>
-        <Modal.Content>
-          <TodoList />
-        </Modal.Content>
-        <Modal.Actions>
-          <Button negative onClick={() => dispatch({ type: 'CLOSE_MODAL' })}>
-            Close
-          </Button>
-        </Modal.Actions>
-      </Modal>
-    </div>
-  )
+			<Modal
+				size='small'
+				dimmer={dimmer}
+				open={open}
+				onClose={() => dispatch({ type: 'CLOSE_MODAL' })}
+			>
+				<Modal.Header>{urgentTask}</Modal.Header>
+				<Modal.Content>{list}</Modal.Content>
+				<Modal.Actions>
+					<Button color='orange'>Удалить выбранные</Button>
+					<Button negative onClick={() => dispatch({ type: 'CLOSE_MODAL' })}>
+						Close
+					</Button>
+				</Modal.Actions>
+			</Modal>
+		</div>
+	)
 }
 
 export default ModalExampleDimmer

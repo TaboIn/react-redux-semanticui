@@ -1,9 +1,9 @@
 import './App.css'
 import { useState } from 'react'
-import TodoList from './components/TodoList'
 import InputField from './components/InputFiled'
 import { useDispatch } from 'react-redux'
 import { addTodo } from './store/todoSlice'
+import ModalWindow from './components/ModalWindow'
 
 function App() {
 	const [text, setText] = useState('')
@@ -16,10 +16,12 @@ function App() {
 
 	return (
 		<>
-			<div className='App'>
-				{text.length > 0 ? <p>Отлично</p> : <p>Заполните поле!</p>}
+			<div className='App bg-emerald-100 h-screen'>
 				<InputField text={text} handleInput={setText} handleSubmit={addTask} />
-				<TodoList />
+				{text.length > 0 ? null : <p>Заполните поле!</p>}
+				
+				
+				<ModalWindow />
 			</div>
 		</>
 	)

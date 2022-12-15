@@ -1,13 +1,23 @@
 import React from 'react'
+import { Button, Input } from 'semantic-ui-react'
+
 
 const InputFiled = ({ text, handleInput, handleSubmit }) => {
+
+	
 	return (
 		<label>
-			<input value={text} onChange={event => handleInput(event.target.value)} />
+			<Input 
+			className='p-4' 
+			placeholder='Введите задачу...' 
+			value={text} 
+			onChange={event => handleInput(event.target.value)} 
+
+			/>
 			{text.length > 0 ? (
-				<button onClick={handleSubmit}>Add Todo</button>
+				<Button  onClick={handleSubmit}>Add Todo</Button>
 			) : (
-				<button disable={true}>Add Todo</button>
+				<Button  disable={true}>Add Todo</Button>
 			)}
 		</label>
 	)

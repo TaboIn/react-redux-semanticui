@@ -28,6 +28,12 @@ const todoSlice = createSlice({
 
 			toggledTodo.completed = !toggledTodo.completed
 		},
+		removeChoose(state, action) {
+			const removeChoose = state.todos.find(todo => todo.id === action.payload.id)
+			const test = []
+			test.push(removeChoose)
+			test.length = 0
+		}
 	},
 })
 

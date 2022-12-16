@@ -21,6 +21,11 @@ const todoSlice = createSlice({
 			const toggledTodo = state.todos.find(
 				todo => todo.id === action.payload.id
 			)
+			const test = []
+			test.push(toggledTodo.completed)
+			console.log(test)
+			test.length = 0
+
 			toggledTodo.completed = !toggledTodo.completed
 		},
 	},

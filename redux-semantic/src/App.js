@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 import { addTodo } from './store/todoSlice'
 import ModalWindow from './components/ModalWindow'
 import TodoList from './components/TodoList'
+import MediumList from './components/MediumList'
 
 function App() {
 	const [text, setText] = useState('')
@@ -31,13 +32,11 @@ function App() {
 						urgency={'Среднесрочные задачи'}
 						urgentTask={'Среднесрочные задачи'}
 						color={'teal'}
-						list={<TodoList />}
 					/>
 					<ModalWindow
 						urgency={'Долгосрочные задачи'}
 						urgentTask={'Долгосрочные задачи'}
 						color={'blue'}
-						list={<TodoList />}
 					/>
 				</div>
 			</div>

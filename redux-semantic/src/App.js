@@ -1,11 +1,11 @@
 import './App.css'
 import { useState } from 'react'
-import InputField from './components/InputFiled'
+import InputField from './components/UrgentTodoLists/UrgentInputFiled'
 import { useDispatch } from 'react-redux'
 import { addTodo } from './store/todoSlice'
 import ModalWindow from './components/ModalWindow'
-import TodoList from './components/TodoList'
-import MediumList from './components/MediumList'
+import TodoList from './components/UrgentTodoLists/UrgentTodoList'
+import MediumList from './components/MediumTodoList'
 
 function App() {
 	const [text, setText] = useState('')
@@ -32,6 +32,7 @@ function App() {
 						urgency={'Среднесрочные задачи'}
 						urgentTask={'Среднесрочные задачи'}
 						color={'teal'}
+						list={<MediumList />}
 					/>
 					<ModalWindow
 						urgency={'Долгосрочные задачи'}

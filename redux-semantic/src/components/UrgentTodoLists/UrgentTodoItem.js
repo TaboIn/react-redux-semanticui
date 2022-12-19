@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { removeTodo, toggleTodo } from '../store/todoSlice'
+import { removeTodo, toggleTodo } from '../../store/todoSlice'
 import { Button } from 'semantic-ui-react'
 
 const TodoItem = ({ id, text, completed }) => {

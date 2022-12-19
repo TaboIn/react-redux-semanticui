@@ -1,8 +1,8 @@
 import React from 'react'
-import TodoItem from './TodoItem'
+import TodoItem from './UrgentTodoItem'
 import { useSelector } from 'react-redux'
 
-const TodoList = () => {
+const UrgentTodoList = () => {
 	const todos = useSelector(state => state.todos.todos)
 
 	return (
@@ -14,4 +14,4 @@ const TodoList = () => {
 	)
 }
 
-export default TodoList
+export default UrgentTodoList

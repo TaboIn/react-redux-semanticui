@@ -5,5 +5,6 @@ export default configureStore({
 	reducer: {
 		todos: todoReducer,
 		mediumTodos: todoReducer,
+		longerTodos : todoReducer,
 	},
 })

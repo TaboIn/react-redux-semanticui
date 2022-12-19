@@ -6,18 +6,10 @@ const todoSlice = createSlice({
 	initialState: {
 		todos: [],
 		mediumTodos: [],
+		longerTodos: [],
 	},
 	reducers: {
 		// ОБЯЗАТЕЛЬНО ПИСАТЬ REDUCERS!!! (МНОЖЕСТВЕННОЕ ЧИСЛО!!!)
-		addTodo(state, action) {
-			state.todos.push({
-				id: new Date().toISOString(),
-				text: action.payload.text,
-				completed: false,
-			})
-
-			console.log(action)
-		},
 		removeTodo(state, action) {
 			state.todos = state.todos.filter(todo => todo.id !== action.payload.id)
 		},
@@ -27,9 +19,22 @@ const todoSlice = createSlice({
 			)
 			toggledTodo.completed = !toggledTodo.completed
 		},
-
+		addUrgentTodo(state, action) {
+			state.todos.push({
+				id: new Date().toISOString(),
+				text: action.payload.text,
+				completed: false,
+			})
+		},
 		addMediumTodo(state, action) {
 			state.mediumTodos.push({
+				id: new Date().toISOString(),
+				text: action.payload.text,
+				completed: false,
+			})
+		},
+		addLongerTodo(state, action) {
+			state.longerTodos.push({
 				id: new Date().toISOString(),
 				text: action.payload.text,
 				completed: false,
@@ -38,7 +43,7 @@ const todoSlice = createSlice({
 	},
 })
 
-export const { addTodo, removeTodo, toggleTodo, addMediumTodo } =
+export const { removeTodo, toggleTodo, addUrgentTodo, addMediumTodo, addLongerTodo } =
 	todoSlice.actions
 
 export default todoSlice.reducer

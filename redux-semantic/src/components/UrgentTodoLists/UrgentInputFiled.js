@@ -1,7 +1,13 @@
 import React from 'react'
 import { Button, Input, ButtonGroup } from 'semantic-ui-react'
 
-const InputFiled = ({ text, handleInput, handleSubmit }) => {
+const InputFiled = ({ 
+	text, 
+	handleInput, 
+	handleUrgentSubmit, 
+	handleMediumSubmit,
+	handleLongerSubmit
+}) => {
 	return (
 		<label>
 			<Input
@@ -12,13 +18,13 @@ const InputFiled = ({ text, handleInput, handleSubmit }) => {
 			/>
 			{text.length > 0 ? (
 				<ButtonGroup>
-					<Button onClick={handleSubmit} color='red'>
+					<Button onClick={handleUrgentSubmit} color='red'>
 						Краткосрочные
 					</Button>
-					<Button onClick={handleSubmit} color='teal'>
+					<Button onClick={handleMediumSubmit} color='teal'>
 						Среднесрочные
 					</Button>
-					<Button onClick={handleSubmit} color='blue'>
+					<Button onClick={handleLongerSubmit} color='blue'>
 						Долгосрочные
 					</Button>
 				</ButtonGroup>

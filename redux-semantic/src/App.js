@@ -2,31 +2,46 @@ import './App.css'
 import { useState } from 'react'
 import InputField from './components/UrgentTodoLists/UrgentInputFiled'
 import { useDispatch } from 'react-redux'
-import { addTodo } from './store/todoSlice'
+import { addUrgentTodo, addMediumTodo, addLongerTodo } from './store/todoSlice'
 import ModalWindow from './components/ModalWindow'
-import TodoList from './components/UrgentTodoLists/UrgentTodoList'
-import MediumList from './components/MediumTodoList'
+import UrgentList from './components/UrgentTodoLists/UrgentTodoList'
+import MediumList from './components/MediumTodoList/MediumTodoList'
+import LongerList from './components/LongerTodoList/LongerTodoList'
 
 function App() {
 	const [text, setText] = useState('')
 	const dispatch = useDispatch()
 
-	const addTask = () => {
-		dispatch(addTodo({ text }))
+	const addUrgentTask = () => {
+		dispatch(addUrgentTodo({ text }))
+		setText('')
+	}
+	const addMediumTask = () => {
+		dispatch(addMediumTodo({ text }))
+		setText('')
+	}
+	const addLongerTask = () => {
+		dispatch(addLongerTodo({ text }))
 		setText('')
 	}
 
 	return (
 		<>
 			<div className='App bg-emerald-100 h-screen'>
-				<InputField text={text} handleInput={setText} handleSubmit={addTask} />
+				<InputField 
+				text={text} 
+				handleInput={setText} 
+				handleUrgentSubmit={addUrgentTask} 
+				handleMediumSubmit={addMediumTask} 
+				handleLongerSubmit={addLongerTask}
+				/>
 				{text.length > 0 ? null : <p className='font-bold'>Заполните поле!</p>}
 				<div className='flex justify-center items-center '>
 					<ModalWindow
 						urgency={'Срочные задачи'}
 						urgentTask={'Краткосрочные задачи'}
 						color={'red'}
-						list={<TodoList />}
+						list={<UrgentList />}
 					/>
 					<ModalWindow
 						urgency={'Среднесрочные задачи'}
@@ -38,6 +53,7 @@ function App() {
 						urgency={'Долгосрочные задачи'}
 						urgentTask={'Долгосрочные задачи'}
 						color={'blue'}
+						list={<LongerList />}
 					/>
 				</div>
 			</div>

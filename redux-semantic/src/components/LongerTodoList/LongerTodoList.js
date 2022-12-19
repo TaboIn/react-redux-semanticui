@@ -1,9 +1,9 @@
 import React from 'react'
-import TodoItem from './UrgentTodoLists/UrgentTodoItem'
+import TodoItem from '../UrgentTodoLists/UrgentTodoItem'
 import { useSelector } from 'react-redux'
 
-const MediumTodoList = () => {
-	const todos = useSelector(state => state.todos.mediumTodos)
+const LongerTodoList = () => {
+	const todos = useSelector(state => state.longerTodos.longerTodos)
 
 	return (
 		<ul className='grid grid-cols-3 '>
@@ -14,4 +14,4 @@ const MediumTodoList = () => {
 	)
 }
 
-export default MediumTodoList
+export default LongerTodoList

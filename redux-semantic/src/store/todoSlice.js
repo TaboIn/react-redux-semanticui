@@ -10,6 +10,13 @@ const todoSlice = createSlice({
 	},
 	reducers: {
 		// ОБЯЗАТЕЛЬНО ПИСАТЬ REDUCERS!!! (МНОЖЕСТВЕННОЕ ЧИСЛО!!!)
+		addUrgentTodo(state, action) {
+			state.todos.push({
+				id: new Date().toISOString(),
+				text: action.payload.text,
+				completed: false,
+			})
+		},
 		removeTodo(state, action) {
 			state.todos = state.todos.filter(todo => todo.id !== action.payload.id)
 		},
@@ -19,19 +26,21 @@ const todoSlice = createSlice({
 			)
 			toggledTodo.completed = !toggledTodo.completed
 		},
-		addUrgentTodo(state, action) {
-			state.todos.push({
-				id: new Date().toISOString(),
-				text: action.payload.text,
-				completed: false,
-			})
-		},
 		addMediumTodo(state, action) {
 			state.mediumTodos.push({
 				id: new Date().toISOString(),
 				text: action.payload.text,
 				completed: false,
 			})
+		},
+		removeMediumTodo(state, action) {
+			state.mediumTodos = state.mediumTodos.filter(todo => todo.id !== action.payload.id)
+		},
+		toggleMediumTodo(state, action) {
+			const toggledMediumTodo = state.mediumTodos.find(
+				todo => todo.id === action.payload.id
+			)
+			toggledMediumTodo.completed = !toggledMediumTodo.completed
 		},
 		addLongerTodo(state, action) {
 			state.longerTodos.push({
@@ -40,6 +49,15 @@ const todoSlice = createSlice({
 				completed: false,
 			})
 		},
+		removeLongerTodo(state, action) {
+			state.longerTodos = state.longerTodos.filter(todo => todo.id !== action.payload.id)
+		},
+		toggledLongerTodo(state, action) {
+			const toggledLongerTodo = state.longerTodos.find(
+				todo => todo.id === action.payload.id
+			)
+			toggledLongerTodo.completed = !toggledLongerTodo.completed
+		}
 	},
 })
 

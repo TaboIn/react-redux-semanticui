@@ -29,7 +29,7 @@ function ModalExampleDimmer({ urgency, urgentTask, color, list }) {
 			</Button>
 
 			<Modal
-				size='small'
+				size='large'
 				dimmer={dimmer}
 				open={open}
 				onClose={() => dispatch({ type: 'CLOSE_MODAL' })}

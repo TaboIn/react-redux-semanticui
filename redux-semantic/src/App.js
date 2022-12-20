@@ -2,8 +2,9 @@ import './App.css'
 import { useState } from 'react'
 import InputField from './components/UrgentTodoLists/UrgentInputFiled'
 import { useDispatch } from 'react-redux'
-import { addUrgentTodo, addLongerTodo } from './store/todoSlice'
+import { addUrgentTodo } from './store/todoUrgentSlice'
 import { addMediumTodo } from './store/todoMediumSlice'
+import { addLongerTodo } from './store/todoLongerSlice'
 import ModalWindow from './components/ModalWindow'
 import UrgentList from './components/UrgentTodoLists/UrgentTodoList'
 import MediumList from './components/MediumTodoList/MediumTodoList'
@@ -28,7 +29,7 @@ function App() {
 
 	return (
 		<>
-			<div className='App bg-emerald-100 h-screen'>
+			<div className='App bg-emerald-50 h-screen'>
 				<InputField
 					text={text}
 					handleInput={setText}

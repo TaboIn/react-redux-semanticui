@@ -1,5 +1,5 @@
 import React from 'react'
-import TodoItem from '../UrgentTodoLists/UrgentTodoItem'
+import TodoLongerItem from './LongerTodoItem'
 import { useSelector } from 'react-redux'
 
 const LongerTodoList = () => {
@@ -8,7 +8,7 @@ const LongerTodoList = () => {
 	return (
 		<ul className='grid grid-cols-3 '>
 			{todos.map(todo => (
-				<TodoItem key={todo.id} {...todo} />
+				<TodoLongerItem key={todo.id} {...todo} />
 			))}
 		</ul>
 	)

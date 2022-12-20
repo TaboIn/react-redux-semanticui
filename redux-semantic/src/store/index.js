@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
-import todoReducer from './todoSlice'
+import todoUrgentReducer from './todoUrgentSlice'
 import todoMediumReducer from './todoMediumSlice'
+import todoLongerReducer from './todoLongerSlice'
 
 export default configureStore({
 	reducer: {
-		todos: todoReducer,
+		urgentTodos: todoUrgentReducer,
 		mediumTodos: todoMediumReducer,
+		longerTodos: todoLongerReducer,
 	},
 })

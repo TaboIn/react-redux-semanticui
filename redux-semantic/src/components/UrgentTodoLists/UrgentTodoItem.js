@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { removeTodo, toggleTodo } from '../../store/todoSlice'
+import { removeUrgentTodo, toggleUrgentTodo } from '../../store/todoUrgentSlice'
 import { Button } from 'semantic-ui-react'
 
 const TodoItem = ({ id, text, completed }) => {
@@ -14,14 +14,14 @@ const TodoItem = ({ id, text, completed }) => {
 						<input
 							type='checkbox'
 							checked={completed}
-							onChange={() => dispatch(toggleTodo({ id }))}
+							onChange={() => dispatch(toggleUrgentTodo({ id }))}
 						/>
 
 						<span className='text-xl'>{text}</span>
 						<Button
 							size='mini'
 							negative
-							onClick={() => dispatch(removeTodo({ id }))}
+							onClick={() => dispatch(removeUrgentTodo({ id }))}
 						>
 							X
 						</Button>

@@ -3,7 +3,7 @@ import TodoItem from './UrgentTodoItem'
 import { useSelector } from 'react-redux'
 
 const UrgentTodoList = () => {
-	const todos = useSelector(state => state.todos.todos)
+	const todos = useSelector(state => state.urgentTodos.urgentTodos)
 
 	return (
 		<ul className='grid grid-cols-3 '>

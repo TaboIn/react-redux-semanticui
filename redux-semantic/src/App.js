@@ -2,7 +2,8 @@ import './App.css'
 import { useState } from 'react'
 import InputField from './components/UrgentTodoLists/UrgentInputFiled'
 import { useDispatch } from 'react-redux'
-import { addUrgentTodo, addMediumTodo, addLongerTodo } from './store/todoSlice'
+import { addUrgentTodo, addLongerTodo } from './store/todoSlice'
+import { addMediumTodo } from './store/todoMediumSlice'
 import ModalWindow from './components/ModalWindow'
 import UrgentList from './components/UrgentTodoLists/UrgentTodoList'
 import MediumList from './components/MediumTodoList/MediumTodoList'
@@ -28,12 +29,12 @@ function App() {
 	return (
 		<>
 			<div className='App bg-emerald-100 h-screen'>
-				<InputField 
-				text={text} 
-				handleInput={setText} 
-				handleUrgentSubmit={addUrgentTask} 
-				handleMediumSubmit={addMediumTask} 
-				handleLongerSubmit={addLongerTask}
+				<InputField
+					text={text}
+					handleInput={setText}
+					handleUrgentSubmit={addUrgentTask}
+					handleMediumSubmit={addMediumTask}
+					handleLongerSubmit={addLongerTask}
 				/>
 				{text.length > 0 ? null : <p className='font-bold'>Заполните поле!</p>}
 				<div className='flex justify-center items-center '>

@@ -1,6 +1,6 @@
 import './App.css'
 import { useState } from 'react'
-import InputField from './components/UrgentTodoLists/UrgentInputFiled'
+import InputField from './InputField'
 import { useDispatch } from 'react-redux'
 import { addUrgentTodo } from './store/todoUrgentSlice'
 import { addMediumTodo } from './store/todoMediumSlice'
@@ -44,6 +44,7 @@ function App() {
 						urgentTask={'Краткосрочные задачи'}
 						color={'red'}
 						list={<UrgentList />}
+						
 					/>
 					<ModalWindow
 						urgency={'Среднесрочные задачи'}
@@ -56,6 +57,7 @@ function App() {
 						urgentTask={'Долгосрочные задачи'}
 						color={'blue'}
 						list={<LongerList />}
+						
 					/>
 				</div>
 			</div>

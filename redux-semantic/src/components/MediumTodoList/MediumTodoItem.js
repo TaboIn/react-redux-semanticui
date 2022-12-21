@@ -25,6 +25,7 @@ const TodoItem = ({ id, text, completed }) => {
 						>
 							X
 						</Button>
+						
 					</li>
 				</div>
 			</div>

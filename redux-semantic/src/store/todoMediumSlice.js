@@ -18,17 +18,28 @@ const todoMediumSlice = createSlice({
 			state.mediumTodos = state.mediumTodos.filter(
 				todo => todo.id !== action.payload.id
 			)
+
 		},
 		toggleMediumTodo(state, action) {
 			const toggledTodo = state.mediumTodos.find(
 				todo => todo.id === action.payload.id
 			)
 			toggledTodo.completed = !toggledTodo.completed
+
 		},
+		removeList(state, action) {
+			const select = state.mediumTodos.find(
+				todo => todo.id === action.payload.id
+			)
+			state.mediumTodos = state.mediumTodos.filter(
+				todo => todo.id !== toggleMediumTodo
+			)
+
+		}
 	},
 })
 
-export const { removeMediumTodo, toggleMediumTodo, addMediumTodo } =
+export const { removeMediumTodo, toggleMediumTodo, addMediumTodo, removeList } =
 	todoMediumSlice.actions
 
 export default todoMediumSlice.reducer

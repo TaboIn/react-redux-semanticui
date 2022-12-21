@@ -11,7 +11,7 @@ const InputFiled = ({
 	return (
 		<label>
 			<Input
-				className='p-4'
+				className='p-6 font-bold'
 				placeholder='Введите задачу...'
 				value={text}
 				onChange={event => handleInput(event.target.value)}

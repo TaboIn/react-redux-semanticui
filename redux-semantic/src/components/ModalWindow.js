@@ -37,7 +37,6 @@ function ModalExampleDimmer({ urgency, urgentTask, color, list }) {
 				<Modal.Header>{urgentTask}</Modal.Header>
 				<Modal.Content>{list}</Modal.Content>
 				<Modal.Actions>
-					<Button>удалить выбранные элементы</Button>
 					<Button negative onClick={() => dispatch({ type: 'CLOSE_MODAL' })}>
 						Close
 					</Button>

@@ -44,7 +44,6 @@ function App() {
 						urgentTask={'Краткосрочные задачи'}
 						color={'red'}
 						list={<UrgentList />}
-						
 					/>
 					<ModalWindow
 						urgency={'Среднесрочные задачи'}
@@ -57,7 +56,6 @@ function App() {
 						urgentTask={'Долгосрочные задачи'}
 						color={'blue'}
 						list={<LongerList />}
-						
 					/>
 				</div>
 			</div>

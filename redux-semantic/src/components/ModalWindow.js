@@ -12,7 +12,7 @@ function exampleReducer(state, action) {
 	}
 }
 
-function ModalExampleDimmer({ urgency, urgentTask, color, list, removeList }) {
+function ModalExampleDimmer({ urgency, urgentTask, color, list }) {
 	const [state, dispatch] = useReducer(exampleReducer, {
 		open: false,
 		dimmer: undefined,
@@ -37,7 +37,6 @@ function ModalExampleDimmer({ urgency, urgentTask, color, list, removeList }) {
 				<Modal.Header>{urgentTask}</Modal.Header>
 				<Modal.Content>{list}</Modal.Content>
 				<Modal.Actions>
-					{/* <Button onClick={removeList} color='orange'>Удалить выбранные</Button> */}
 					<Button negative onClick={() => dispatch({ type: 'CLOSE_MODAL' })}>
 						Close
 					</Button>

@@ -6,11 +6,13 @@ const UrgentTodoList = () => {
 	const todos = useSelector(state => state.urgentTodos.urgentTodos)
 
 	return (
-		<ul className='grid grid-cols-3 '>
-			{todos.map(todo => (
-				<TodoItem key={todo.id} {...todo} />
-			))}
-		</ul>
+		<div>
+			<ul className='grid grid-cols-3 '>
+				{todos.map(todo => (
+					<TodoItem key={todo.id} {...todo} />
+				))}
+			</ul>
+		</div>
 	)
 }
 

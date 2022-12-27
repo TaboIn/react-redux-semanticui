@@ -22,7 +22,6 @@ const TodoItem = ({ id, text, completed }) => {
 							checked={completed}
 							onChange={() => dispatch(toggleUrgentTodo({ id }))}
 						/>
-
 						<span className='text-xl'>{text}</span>
 						<Button size='mini' negative onClick={handleChage}>
 							X
